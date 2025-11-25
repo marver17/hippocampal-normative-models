@@ -1,0 +1,11 @@
+Structural  (T1w)													
+Protocol #	1	2	3	4	5	6	7	8	9	10	11	12	14
+Site	Showa university	Hiroshima University Hospital	Hiroshima University Hospital	Hiroshima Kajikawa Hospital	Center of Innovation in Hiroshima University	Kyoto university	Kyoto university 	University of Tokyo	ATR 	ATR 	ATR 	ATR 	CiNet
+Scanner	SIEMENS  Verio	GE Signa HDxt	GE Signa HDxt	SIEMENS Spectra	SIEMENS MAGNETOM Verio.Dot	SIEMENS  TimTrio	SIEMENS Trio	GE Discovery MR750w	SIEMENS Verio	SIEMENS Verio	SIEMENS TimTrio	SIEMENS TimTrio	SIEMENS TimTrio
+Voxel size (mm^3)	1 x 1 x 1	1 x 1 x 1	1 x 1 x 1	1 x 1 x 1	1 x 1 x 1	0.9375 x 0.9375 x 1.0	0.9375 x 0.9375 x 1.0	1 x 1 x 1.2	1 x 1 x 1	1 x 1 x 1	1 x 1 x 1	1 x 1 x 1	1 x 1 x 1
+TR (ms)	2300	6812	6812	1900	2300	2000	2000	7.7	2250	2300	2250	2300	1900
+TE (ms)	2.98	1896	1896	2.38	2.98	3.4	4.38	3.1	3.06	2.98	3.06	2.98	2.48
+TI (ms)	900	450	450	900	900	990	990	400	900	900	900	900	900
+Flip angel (deg)	9	20	20	10	9	8	8	11	9	9	9	9	9
+FOV	256	256	256	256	256	225 x 240	225 x 240	240	256	256	256	256	256
+Matrix	256 x 256	256 x 256	256 x 256	256 x 256	256 x 256	240 x 256	240 x 256	256 x 256	256 x 256	256 x 256	256 x 256	256 x 256	256 x 256

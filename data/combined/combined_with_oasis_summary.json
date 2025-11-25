@@ -1,0 +1,40 @@
+{
+  "creation_date": "2025-11-18T16:23:53.861311",
+  "datasets_included": [
+    "ADNI",
+    "PPMI",
+    "IXI",
+    "OASIS1"
+  ],
+  "description": "Combined neuroimaging datasets for dementia normative modeling - INCLUDING OASIS1",
+  "age_50plus_PRIMARY": {
+    "n_subjects": 973,
+    "age_range": [
+      50.0,
+      94.0
+    ],
+    "age_mean": 69.5,
+    "age_std": 9.1,
+    "male_n": 440,
+    "female_n": 533,
+    "dataset_distribution": {
+      "ADNI": 395,
+      "PPMI": 160,
+      "IXI": 298,
+      "OASIS1": 120
+    }
+  },
+  "comparison": {
+    "without_oasis": 853,
+    "with_oasis": 973,
+    "increase": 120,
+    "increase_pct": 14.1
+  },
+  "notes": [
+    "All datasets use baseline/single timepoint - statistical independence satisfied",
+    "OASIS1 imaging in Analyze format (.hdr/.img) - requires conversion to NIfTI",
+    "Multi-site data requires harmonization (ComBat recommended)",
+    "OASIS1 adds +120 subjects, primarily in 70-94 age range"
+  ],
+  "recommendation": "Use combined dataset with OASIS1 (973 subjects) for comprehensive normative modeling"
+}

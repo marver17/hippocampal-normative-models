@@ -1,0 +1,17 @@
+participant_id	site	diag	age	sex	hand	"Medication (AntiDepression, Imipramine equivalents mg/day)"	"Medication (Mood stabiliser, 1=No use, 2=Use)"	"Medication (Antipsychotics, Chlorpromazine equivalents mg/day)"	"Medication (Anticholinergic, 1=No use, 2=Use)"	"Medication (Benzodiazepine, 1=No use, 2=Use)"	BDI-II
+sub-0874	KUT	2	41	2	1	375	1	0	1	2	36
+sub-0875	KUT	2	64	2	1	150	2	200	1	2	25
+sub-0876	KUT	2	44	1	1	213	1	250	2	2	25
+sub-0877	KUT	2	31	1	1	150	2	40	1	2	41
+sub-0878	KUT	2	62	2	1	38	1	0	1	1	2
+sub-0879	KUT	2	40	2	1	25	2	0	1	2	30
+sub-0880	KUT	2	51	1	2	375	1	0	1	2	36
+sub-0881	KUT	2	46	2	1	169	1	0	1	1	24
+sub-0882	KUT	2	49	1	1	300	1	75	1	1	25
+sub-0883	KUT	2	22	1	1	0	1	0	1	1	10
+sub-0884	KUT	2	30	2	1	425	1	38	1	2	40
+sub-0885	KUT	2	47	1	1	113	1	0	1	2	34
+sub-0886	KUT	2	34	1	1	50	1	0	1	2	28
+sub-0887	KUT	2	54	1	1	250	1	50	1	1	32
+sub-1021	KUT	2	44	1	1	125	1	0	1	2	29
+sub-1022	KUT	2	22	1	1	150	1	0	1	2	20

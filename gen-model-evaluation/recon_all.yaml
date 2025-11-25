@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: recon-all1
+  namespace: mario-verdicchio
+spec:
+  containers:
+    - name: freesurfer
+      image: registry.sdn/freesurfer:6.0
+      command:
+      - "bash"
+      - "-c"
+      - |
+          export MOUNT_DIR=/mnt/NAS-Personale/freesurfer/
+          cp $MOUNT_DIR/license.txt /opt/freesurfer/license.txt
+          cp /mnt/NAS-Personale/freesurfer/reconall-stripped.sh /opt/freesurfer/reconall-stripped.sh
+          SUBJECT_ID="42566"
+          INPUT_IMAGE_PATH="/mnt/NAS-Personale/freesurfer/data/sub-42566ctTemplatespace_generated_mr.nii.gz"
+          bash /opt/freesurfer/reconall-stripped.sh $SUBJECT_ID $INPUT_IMAGE_PATH $MOUNT_DIR/subjects
+      resources:
+        requests:
+          memory: "16Gi"
+          cpu: "8"
+        limits:
+          memory: "20Gi"
+          cpu: "10"
+      volumeMounts:
+        - name: my-volume
+          mountPath: "/mnt/NAS-Personale"
+  volumes:
+    - name: my-volume
+      persistentVolumeClaim:
+        claimName: pv-marioverdicchio-personal-claim

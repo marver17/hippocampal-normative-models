@@ -1,0 +1,35 @@
+{
+  "dataset": "OASIS2",
+  "description": "OASIS-2 Longitudinal MRI Data in Nondemented and Demented Older Adults",
+  "study_design": "longitudinal",
+  "analysis_date": "2025-11-18T16:38:41.138794",
+  "total_subjects": 150,
+  "total_scans": 373,
+  "age_range_all": [
+    60,
+    98
+  ],
+  "baseline_subjects": {
+    "all": 150,
+    "nondemented": 72,
+    "demented": 64,
+    "converted": 14
+  },
+  "healthy_controls_baseline": {
+    "n_subjects": 85,
+    "age_range": [
+      60,
+      93
+    ],
+    "age_mean": 75.82352941176471,
+    "age_std": 8.089052670692885,
+    "male_n": 26,
+    "female_n": 59,
+    "mmse_mean": 29.211764705882352,
+    "mmse_std": 0.8604278787055782
+  },
+  "imaging_status": {
+    "available": false
+  },
+  "note": "OASIS2 \u00e8 longitudinale - usa baseline (prima visita) per normative modeling. Tutti i soggetti hanno et\u00e0 \u226560 anni."
+}

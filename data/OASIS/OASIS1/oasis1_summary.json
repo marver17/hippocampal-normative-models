@@ -1,0 +1,30 @@
+{
+  "dataset": "OASIS1",
+  "description": "OASIS-1 Cross-Sectional MRI Data in Young, Middle Aged, Nondemented and Demented Older Adults",
+  "analysis_date": "2025-11-18T16:14:25.438888",
+  "total_subjects": 436,
+  "age_range_all": [
+    18,
+    96
+  ],
+  "subjects_age_50plus": {
+    "all": 231,
+    "normal_cdr0": 120,
+    "dementia": 100,
+    "cdr_missing": 11
+  },
+  "healthy_controls_50plus": {
+    "n_subjects": 120,
+    "age_range": [
+      50,
+      94
+    ],
+    "age_mean": 72.03333333333333,
+    "age_std": 11.626493458479045,
+    "male_n": 32,
+    "female_n": 88,
+    "mmse_mean": 29.05,
+    "mmse_std": 1.1584544905703846
+  },
+  "note": "OASIS1 is cross-sectional (single timepoint per subject), all subjects are healthy controls (CDR=0)"
+}

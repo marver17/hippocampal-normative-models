@@ -1,0 +1,47 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: 'indexed-job'
+spec:
+  completions: 5
+  parallelism: 3
+  completionMode: Indexed
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: freesurfer
+          image: registry.sdn/freesurfer:6.0
+          command:
+            - "bash"
+            - "-c"
+            - |
+                export SUBJECTS_DIR=/mnt/NAS-Personale/freesurfer/subjects
+                echo $SUBJECTS_DIR
+                cp $SUBJECTS_DIR/license.txt /opt/freesurfer/license.txt
+
+
+                # Estrai la riga corrispondente all'indice
+                line=$(sed -n "$((JOB_COMPLETION_INDEX+1))p" /mnt/NAS-Personale/freesurfer/data.csv)
+                subject_id=$(echo $line | cut -d',' -f1)
+                image_path=$(echo $line | cut -d',' -f2)
+
+                mkdir -p $SUBJECTS_DIR/$subject_id/mri/orig/
+                mri_convert $image_path $SUBJECTS_DIR/$subject_id/mri/orig/001.mgz --scale 1000
+                recon-all -s %subject_id -all  -openmp 8 -parallel
+          resources:
+            requests:
+              memory: "8Gi"
+              cpu: "8"
+            limits:
+              memory: "10Gi"
+              cpu: "9"
+          volumeMounts:
+            - name: my-volume
+              mountPath: "/mnt/NAS-Personale"
+      volumes:
+        - name: my-volume
+          persistentVolumeClaim:
+            claimName: pv-marioverdicchio-personal-claim
+
+

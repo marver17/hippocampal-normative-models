@@ -1,0 +1,60 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: 'indexed-job'
+  namespace: mario-verdicchio
+spec:
+  completions: 3375
+  parallelism: 4
+  completionMode: Indexed
+  backoffLimit: 50
+  backoffLimitPerIndex: 2
+  maxFailedIndexes: 50
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      restartPolicy: OnFailure
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: NotIn
+                values:
+                - kubelet-5 
+      containers:
+        - name: freesurfer
+          image: registry.sdn/freesurfer:8.1.0a
+          command:
+            - "bash"
+            - "-c"
+            - |
+                line=$(sed -n "$((JOB_COMPLETION_INDEX+2))p" "/mnt/db_ext/ADNI_DB/combined_oasis_srpbs_synthseg_processing.csv")
+                subject_id=$(echo $line | cut -d',' -f1)
+                image_path=$(echo $line | cut -d',' -f2)
+                output_path=$(echo $line | cut -d',' -f3)
+                bash /mnt/db_ext/ADNI_DB/synthseg_run.sh $subject_id $image_path $output_path 4
+          resources:
+            requests:
+              memory: "14Gi"
+              cpu: "4"
+            limits:
+              memory: "36Gi"
+              cpu: "6"
+          volumeMounts:
+            - name: my-volume
+              mountPath: "/mnt/db_ext"
+            - name: my-volume-2
+              mountPath: "/mnt/NAS-Progetti"
+      volumes:
+        - name: my-volume
+          persistentVolumeClaim:
+            claimName: pvc-dbext
+        - name: my-volume-2
+          persistentVolumeClaim:
+            claimName: pvc-progetti-claim
+
+  

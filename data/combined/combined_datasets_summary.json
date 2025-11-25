@@ -1,0 +1,47 @@
+{
+  "creation_date": "2025-11-20T10:52:20.363466",
+  "datasets_included": [
+    "ADNI",
+    "PPMI",
+    "IXI"
+  ],
+  "all_ages": {
+    "n_subjects": 1170,
+    "age_range": [
+      19.980835044490075,
+      89.6
+    ],
+    "age_mean": 59.91282560241493,
+    "age_std": 17.399067719786064,
+    "male_n": 566,
+    "female_n": 604
+  },
+  "age_40plus": {
+    "n_subjects": 957,
+    "age_range": [
+      40.0082135523614,
+      89.6
+    ],
+    "age_mean": 66.51441534226353,
+    "age_std": 11.161326822259083,
+    "male_n": 456,
+    "female_n": 501
+  },
+  "age_50plus_PRIMARY": {
+    "n_subjects": 853,
+    "age_range": [
+      50.02327173169062,
+      89.6
+    ],
+    "age_mean": 69.17566666907392,
+    "age_std": 8.576854062139379,
+    "male_n": 408,
+    "female_n": 445,
+    "dataset_distribution": {
+      "ADNI": 395,
+      "PPMI": 160,
+      "IXI": 298
+    }
+  },
+  "recommendation": "Use age_50plus_PRIMARY dataset for dementia normative modeling"
+}

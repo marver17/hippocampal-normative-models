@@ -1,0 +1,342 @@
+# SRPBS Multi-disorder MRI Dataset (unrestricted)
+
+## Version histories
+- v1: Created On 08/26/2020, Modified On 09/01/2020
+- v2: "README" Modified On 04/01/2021
+- v3: "README", "MRI_protocols_rsMRI.tsv", "MRI_protocols_T1w.tsv" Modified On 04/19/2022
+- v4: "README", "MRI_protocols_rsMRI.tsv", Modified On 04/22/2022
+
+## Abstract
+In 2013, the Japan Agency for Medical Research and Development (AMED) organized the Decoded Neurofeedback (DecNef) Project. The project determined the unified imaging protocol on 28th February 2014 (https://bicr.atr.jp/rs-fmri-protocol-2/) and have collected multisite resting-state functional magnetic resonance imaging (rs-fMRI) data using fourteen scanners across eight research institutes for the last five years. The collected dataset encompasses 2,239 participants and five disorders and is publicly shared through the SRPBS multisite multi-disorder database (https://bicr-resource.atr.jp/decnefpro/). We also collected traveling-subject rs-fMRI dataset to estimate measurement bias in each imaging site. 
+
+Here we released the 3T MRI imaging dataset from 1,410 participants who agreed to unrestricted release with NIFTI format:
+- resting-state fMRI EPI images (func)
+- defaced T1w image (anat)
+- fieldmap (fmap, optional)
+  
+## References
+- Yamashita A, Yahata N, Itahashi T, Lisi G, Yamada T, et al. (2019) Harmonization of resting-state functional MRI data across multiple imaging sites via the separation of site differences into sampling bias and measurement bias. PLOS Biology 17(4): e3000042. https://doi.org/10.1371/journal.pbio.3000042
+
+## Demographic information
+- participants.tsv
+    - participant_id
+    - site
+        - SWA:	Showa University
+        - HUH:	Hiroshima University Hospital
+        - HRC:	Hiroshima Rehabilitation Center
+        - HKH:	Hiroshima Kajikawa Hospital
+        - COI:	Hiroshima COI
+        - KUT:	Kyoto University TimTrio
+        - KTT:	Kyoto University Trio
+        - UTO:	University of Tokyo Hospital
+        - ATT:	ATR Trio
+        - ATV:	ATR Verio
+        - CIN:	CiNet 
+        - NKN:	Nishinomiya Kyouritsu Hospital
+    - protocol	
+        - reference number in "MRI_protocols_T1w.tsv" and "MRI_protocols_rsMRI.tsv"
+    - diag	
+        - 0:	Healthy Control
+        - 1:	Autistic Spectrum Disorders
+        - 2:	Major depressive disorde
+        - 3:	Obsessive Compulsive Disorder
+        - 4:	Schizophrenia
+        - 5:	Pain
+        - 6:	Stroke
+	- 7: 	Bipolar disorder
+	- 8: 	Dysthymia
+        - 99:	Others
+    - age
+        - Years of participants	
+    - sex	
+        - 1:	Male
+        - 2:	Female
+    - hand
+        - 1:	Right handed
+        - 2:	Left handed
+    - sup_indx
+        - 1-9:    Number of supplementary file ("sup*.tsv") for more detailed clinical rating scales (below) for each disorder
+
+## Clinical rating scales
+- sup1.tsv
+    - Estimated IQ	
+    - WAIS	
+    - FIQ	
+    - BDI-II	
+    - AQ(total)	
+    - AQ(ss)	
+    - AQ(as)	
+    - AQ(atd)	
+    - AQ(Com)	
+    - AQ(imag)	
+    - PDI yes/no score	
+    - PDI distress score	
+    - PDI preoccupation score	
+    - PDI conviction score	
+    - PANSS positive scale	
+    - PANSS negative scale	
+    - PANSS general psychopathology scale
+
+- sup2.tsv
+    - BDI-II
+
+- sup3.tsv
+    - Duration of illness (year)	
+    - "Medication (Antipsychotics, Chlorpromazine equivalents mg/day)"	
+    - "Medication (Anticholinergic, 1=No use, 2=Use)"	
+    - "Medication (Benzodiazepine, 1=No use, 2=Use)"	
+    - "Medication (Mood stabiliser, 1=No use, 2=Use)"	
+    - "Medication (AntiDepression, 1=No use, 2=Use)"	
+    - "Smoking (Current use, 1=No use, 2=Use)"	
+    - BACS Verbal Memory	
+    - BACS Working Memory (Digit sequencing)	
+    - BACS Motor Speed (Token motor task)	
+    - BACS Verbal Fluency	
+    - BACS Attention and Processing speed (Symbol-coding task)	
+    - BACS Executive Function (Tower of London)	
+    - PANSS Total (Positive + Negative + General)	
+    - PANSS Positive Total	
+    - PANSS Negative Total	
+    - PANSS General Total	
+    - PANSS Posi_1 Delusion	
+    - PANSS Posi_2 Conceptual disorganization	
+    - PANSS Posi_3 Hallucinatory behavior	
+    - PANSS Posi_4 Excitement	
+    - PANSS Posi_5 Grandiosity	
+    - PANSS Posi_6 Suspiciousness	
+    - PANSS Posi_7 Hostility	
+    - PANSS Nega_1 Blunted affect	
+    - PANSS Nega_2 Emotional withdrawal	
+    - PANSS Nega_3 Poor rapport	
+    - PANSS Nega_4 Passive Apathetic social withdrawal	
+    - PANSS Nega_5 Difficulty in abstract thinking	
+    - PANSS Nega_6 Luck of spontaneity and flow of conversation	
+    - PANSS Nega_7 Stereotyped thinking	
+    - PANSS Gene_1 Somatic concern	
+    - PANSS Gene_2 Anxiety	
+    - PANSS Gene_3 Guilt feeling	
+    - PANSS Gene_4 Tension	
+    - PANSS Gene_5 Mannerisms and posturing	
+    - PANSS Gene_6 Depression	
+    - PANSS Gene_7 Motor retardation	
+    - PANSS Gene_8 Uncooperativeness	
+    - PANSS Gene_9 Unusual thought content	
+    - PANSS Gene_10 Disorientation	
+    - PANSS Gene_11 Poor attention	
+    - PANSS Gene_12 Lack of judgement and insight	
+    - PANSS Gene_13 Disturbance of volition	
+    - PANSS Gene_14 Poor impulse control	
+    - PANSS Gene_15 Preoccupation	
+    - PANSS Gene_16 Active social avoidance	
+    - JART(25) Full Scale Intelligence Quotient	
+    - JART(25) Verbal Intelligence Quotient	
+    - JART(25) Performance Intelligence Quotient
+
+- sup4.tsv
+    - "Smoking (Current use, 1=No use, 2=Use)"	
+    - BACS Verbal Memory	
+    - BACS Working Memory (Digit sequencing)	
+    - BACS Motor Speed (Token motor task)	
+    - BACS Verbal Fluency	
+    - BACS Attention and Processing speed (Symbol-coding task)	
+    - BACS Executive Function (Tower of London)	
+    - JART(25) Full Scale Intelligence Quotient	
+    - JART(25) Verbal Intelligence Quotient	
+    - JART(25) Performance Intelligence Quotient
+
+- sup5.tsv
+    - "Medication (AntiDepression, Imipramine equivalents mg/day)"	
+    - "Medication (Mood stabiliser, 1=No use, 2=Use)"	
+    - "Medication (Antipsychotics, Chlorpromazine equivalents mg/day)"	
+    - "Medication (Anticholinergic, 1=No use, 2=Use)"	
+    - "Medication (Benzodiazepine, 1=No use, 2=Use)"	
+    - BDI-II
+
+- sup6.tsv
+    - CES-D	
+    - PANSS-positive	
+    - PANSS-negative	
+    - PANSS-general psychopathology scales	
+    - Stanford sleepiness scale	
+    - BDI-II
+
+- sup8.tsv
+    - BDI-II	
+    - Pain Duration	(in year)
+    - VAS (for pain)
+
+- sup9.tsv
+    - BDI-II
+
+## Abbreviations in sup*.tsv
+- WAIS: Wechsler Adult Intelligence Scale
+- FIQ: Fluid intelligence Quotient
+- BDI-II: Beck Depression Inventory－Second Edition
+- AQ: Autism-Spectrum Quotient
+- PDI: Peters delusions inventory 
+- PANSS: Positive and Negative Syndrome Scale
+- BACS: The Brief Assessment of Cognition in Schizophrenia
+- JART(25): Japanese Adult Reading Test (short version)
+- CES-D: The Center for Epidemiologic Studies Depression Scale
+- VAS: Visual Analog Scale
+
+## QC
+We calculated quality metrics by applying MRIQC (Esteban et al., 2017; https://mriqc.readthedocs.io/en/stable/index.html). 
+For detailed descriptions of those metrics and related references, please visit the PCP Quality Assessment Protocol website (http://preprocessed-connectomes-project.org/quality-assessment-protocol/)
+- group_T1w.tsv
+    - participant_id	
+    - cjv: 	coefficient of joint variation
+    - cnr: contrast-to-noise ratio	
+    - efc: entropy Focus Criterion	
+    - fber: foreground to Background Energy Ratio	
+    - fwhm_avg: smoothness of Voxels	
+    - fwhm_x: smoothness of Voxels	
+    - fwhm_y: smoothness of Voxels	
+    - fwhm_z: smoothness of Voxels	
+    - icvs_csf: fractions of cerebrospinal fluid (CSF)	
+    - icvs_gm: fractions of gray matter (GM)	
+    - icvs_wm: fractions of white matter (WM)	
+    - inu_med: summary statistics (max, min and median) of the INU field as extracted by the N4ITK algorithm	
+    - inu_range: summary statistics (max, min and median) of the INU field as extracted by the N4ITK algorithm	
+    - qi_1: Mortamet’s 1st quality index	
+    - qi_2: Mortamet’s 2nd quality index	
+    - rpve_csf: residual partial volume effect of CSF	
+    - rpve_gm: residual partial volume effect of GM	
+    - rpve_wm: residual partial volume effect of WM	
+    - size_x: size of x-axis	
+    - size_y: size of y-axis	
+    - size_z: size of z-axis	
+    - snr_csf: signal-to-noise ratio (SNR) of CSF
+    - snr_gm: SNR of GM
+    - snr_total: SNR of total	
+    - snr_wm: SNR of WM	
+    - snrd_csf: Dietrich’s SNR of CSF	
+    - snrd_gm: Dietrich’s SNR of GM
+    - snrd_total: Dietrich’s SNR of total
+    - snrd_wm: Dietrich’s SNR of WM	
+    - spacing_x: spacing size of x-axis
+    - spacing_y: spacing size of y-axis
+    - spacing_z: spacing size of z-axis	
+    - summary_bg_k: kurtosis of the distribution of background	
+    - summary_bg_mad: median absolute deviation of 	the distribution of background
+    - summary_bg_mean: mean of the distribution of background
+    - summary_bg_median: median	of the distribution of background
+    - summary_bg_n: N of the distribution of background
+    - summary_bg_p05: 5% percentile of the distribution of background	
+    - summary_bg_p95: 95% percentile of the distribution of background	
+    - summary_bg_stdv: standard deviation of the distribution of background
+    - summary_csf_k: kurtosis of the distribution of CSF	
+    - summary_csf_mad: median absolute deviation of the distribution of CSF	
+    - summary_csf_mean: mean of the distribution of CSF	
+    - summary_csf_median: median of the distribution of CSF	
+    - summary_csf_n: N of the distribution of CSF	
+    - summary_csf_p05: 5% percentile of the distribution of CSF	
+    - summary_csf_p95: 95% percentile  of the distribution of CSF	
+    - summary_csf_stdv: standard deviation  of the distribution of CSF	
+    - summary_gm_k: kurtosis of the distribution of GM	
+    - summary_gm_mad: median absolute deviation of the distribution of GM	
+    - summary_gm_mean: mean of the distribution of GM	
+    - summary_gm_median: median of the distribution of GM	
+    - summary_gm_n: N of the distribution of GM	
+    - summary_gm_p05: 5% percentile of the distribution of GM	
+    - summary_gm_p95: 95% percentile of the distribution of GM	
+    - summary_gm_stdv: standard deviation of the distribution of GM	
+    - summary_wm_k: kurtosis of the distribution of WM	
+    - summary_wm_mad: median absolute deviation of the distribution of WM	
+    - summary_wm_mean: mean of the distribution of WM	
+    - summary_wm_median: median of the distribution of WM	
+    - summary_wm_n: N of the distribution of WM	
+    - summary_wm_p05: 5% percentile of the distribution of WM	
+    - summary_wm_p95: 95% percentile of the distribution of WM	
+    - summary_wm_stdv: standard deviation of the distribution of WM	
+    - tpm_overlap_csf: overlap of the TPMs estimated from the image and the corresponding maps from the ICBM nonlinear-asymmetric template for CSF
+    - tpm_overlap_gm: overlap of the TPMs estimated from the image and the corresponding maps from the ICBM nonlinear-asymmetric template for GM
+    - tpm_overlap_wm: overlap of the TPMs estimated from the image and the corresponding maps from the ICBM nonlinear-asymmetric template for WM
+    - wm2max: white-matter to maximum intensity ratio
+
+- group_bold.tsv
+    - participant_id	
+    - aor: AFNI’s outlier ratio	
+    - aqi: AFNI’s quality index	
+    - dummy_trs: Number of dummy scans	
+    - dvars_nstd: D referring to temporal derivative of timecourses, VARS referring to RMS variance over voxels 	
+    - dvars_std: normalized with the standard deviation of the temporal difference time series	
+    - dvars_vstd: voxel-wise standardization of DVARS	
+    - efc: entropy-focus criterion	
+    - fber: foreground-Background energy ratio 	
+    - fd_mean: average of Framewise Displacement (FD)	
+    - fd_num: number of timepoints FD threshold	
+    - fd_perc: percent of FDs above the FD threshold	
+    - fwhm_avg: full-width half maximum smoothness (average)
+    - fwhm_x: full-width half maximum smoothness for x-axis	
+    - fwhm_y: full-width half maximum smoothness for y-axis		
+    - fwhm_z: full-width half maximum smoothness for z-axis		
+    - gcor: global Correlation calculates an optimized summary of time-series	
+    - gsr_x: ghost to Signal Ratio along the x-axis
+    - gsr_y: ghost to Signal Ratio along the y-axis	
+    - size_t: size of time
+    - size_x: size of x-axis	
+    - size_y: size of y-axis	
+    - size_z: size of z-axis	
+    - snr: signal-to-noise ratio
+    - spacing_tr: spacing TR	
+    - spacing_x: spacing size of x-axis 	
+    - spacing_y: spacing size of y-axis	
+    - spacing_z: spacing size of z-axis	
+    - summary_bg_k: kurtosis of the distribution of background	
+    - summary_bg_mad: median absolute deviation of 	the distribution of background
+    - summary_bg_mean: mean of the distribution of background
+    - summary_bg_median: median	of the distribution of background
+    - summary_bg_n: N of the distribution of background
+    - summary_bg_p05: 5% percentile of the distribution of background	
+    - summary_bg_p95: 95% percentile of the distribution of background	
+    - summary_bg_stdv: standard deviation of the distribution of background
+    - summary_fg_k: kurtosis of the distribution of foreground	
+    - summary_fg_mad: median absolute deviation of 	the distribution of foreground
+    - summary_fg_mean: mean of the distribution of foreground
+    - summary_fg_median: median	of the distribution of foreground
+    - summary_fg_n: N of the distribution of foreground
+    - summary_fg_p05: 5% percentile of the distribution of foreground	
+    - summary_fg_p95: 95% percentile of the distribution of foreground	
+    - summary_fg_stdv: standard deviation of the distribution of foreground
+    - tsnr: temporal SNR
+
+We manually evaluated the quality of face-masking processing. Three people (one neuroimaging researcher and two clinical psychologists) independently evaluated the accuracy of face-masking by visually checking the structural MRI data. 
+- deface_QC.tsv
+    - participant_id	
+    - score: summation of rating of deface quality by three persons (0: fine, 1: worse, 2: worst)
+    - evaluation: successfull (0), normal (1-2), doubtful (3-6)
+
+## MRI MRI_protocols_rsMRI
+- MRI_protocols_T1w.tsv
+    - Protocol #: corresponding to "protpcol" in "participants.tsv"
+    - Site
+    - Scanner
+    - Voxel size (mm^3)
+    - TR (ms)
+    - TE (ms)
+    - TI (ms)
+    - Flip angel (deg)
+    - FOV
+    - Matrix
+
+- MRI_protocols_rsMRI.tsv
+    - Protocol #: corresponding to "protpcol" in "participants.tsv"
+    - Site
+    - MRI Scanner
+    - Magnitic field strength
+    - Number of channels per coil
+    - TR (s)
+    - TE (ms)
+    - Flip angel (deg)
+    - Phse encoding
+    - Matrix
+    - Field of view (mm)
+    - In-plane resolution (mm)
+    - Slice thickness (mm)
+    - Slice gap (mm)
+    - Number of slices
+    - Slice acquisition order
+    - Number of volumes
+    - Total scan time 
+    - Eye closed/fixate
