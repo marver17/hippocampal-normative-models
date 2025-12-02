@@ -1,0 +1,2 @@
+"model","target_variable","n_subjects","age_min","age_max","n_females","n_males","n_datasets","datasets","mean_z_score","sd_z_score","median_z_score","n_extreme_low_3sd","n_extreme_low_2sd","n_normal","n_extreme_high_2sd","n_extreme_high_3sd","pct_extreme_low_2sd","pct_extreme_high_2sd","pct_within_2sd","AIC","BIC","global_deviance","df_model","created_date"
+"GAMLSS BCT - M1_base","vol_total_hippocampus_norm",2289,45,95,1300,989,6,"ADNI, IXI, OASIS2, OASIS3, PPMI, SRPBS",-1e-04,1.0004,0.0132,1,52,2183,54,2,2.27,2.36,95.37,-28898.93,-28812.89,-28928.93,15,2025-12-02

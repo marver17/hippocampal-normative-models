@@ -4,7 +4,7 @@ metadata:
   name: 'indexed-job'
   namespace: mario-verdicchio
 spec:
-  completions: 3375
+  completions: 113
   parallelism: 4
   completionMode: Indexed
   backoffLimit: 50
@@ -32,7 +32,7 @@ spec:
             - "bash"
             - "-c"
             - |
-                line=$(sed -n "$((JOB_COMPLETION_INDEX+2))p" "/mnt/db_ext/ADNI_DB/combined_oasis_srpbs_synthseg_processing.csv")
+                line=$(sed -n "$((JOB_COMPLETION_INDEX+2))p" "/mnt/NAS-Progetti/BrainAtrophy/DATASET/synthseg_generative.csv")
                 subject_id=$(echo $line | cut -d',' -f1)
                 image_path=$(echo $line | cut -d',' -f2)
                 output_path=$(echo $line | cut -d',' -f3)

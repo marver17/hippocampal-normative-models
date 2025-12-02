@@ -1,0 +1,45 @@
+{
+  "model_info": {
+    "type": "GAMLSS",
+    "family": "BCT",
+    "formula_mu": "pb(age, df=3) + sex + dataset",
+    "formula_sigma": "age",
+    "formula_nu": "1",
+    "formula_tau": "1",
+    "n_subjects": 2289,
+    "age_range": [45, 95],
+    "datasets": ["ADNI", "IXI", "OASIS2", "OASIS3", "PPMI", "SRPBS"],
+    "created": "2025-12-02 12:04:50.561471"
+  },
+  "coefficients": {
+    "mu": {
+      "(Intercept)": 0.0066,
+      "pb(age, df = 3)": -0,
+      "sexM": -0.0003,
+      "datasetIXI": 0.0001,
+      "datasetOASIS2": -2.349e-06,
+      "datasetOASIS3": 0.0001,
+      "datasetPPMI": 0.0001,
+      "datasetSRPBS": 0
+    },
+    "sigma": {
+      "(Intercept)": -3.1996,
+      "age": 0.0095
+    },
+    "nu": {
+      "(Intercept)": 1.5537
+    },
+    "tau": {
+      "(Intercept)": 2.9288
+    }
+  },
+  "factor_levels": {
+    "sex": ["F", "M"],
+    "dataset": ["ADNI", "IXI", "OASIS2", "OASIS3", "PPMI", "SRPBS"]
+  },
+  "normalization": {
+    "age_mean": 67.5559,
+    "age_sd": 9.3859,
+    "target_var": "vol_total_hippocampus_norm"
+  }
+}
