@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: 'indexed-job'
+  name: 'indexed-job1'
   namespace: mario-verdicchio
 spec:
   completions: 113
@@ -32,7 +32,7 @@ spec:
             - "bash"
             - "-c"
             - |
-                line=$(sed -n "$((JOB_COMPLETION_INDEX+2))p" "/mnt/NAS-Progetti/BrainAtrophy/DATASET/synthseg_generative.csv")
+                line=$(sed -n "$((JOB_COMPLETION_INDEX+2))p" "/mnt/NAS-Progetti/BrainAtrophy/DATASET/synthseg_normative_on_real_rf.csv")
                 subject_id=$(echo $line | cut -d',' -f1)
                 image_path=$(echo $line | cut -d',' -f2)
                 output_path=$(echo $line | cut -d',' -f3)
