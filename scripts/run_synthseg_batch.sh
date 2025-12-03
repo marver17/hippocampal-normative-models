@@ -1,6 +1,5 @@
 #!/bin/bash
 # Batch processing script for SynthSeg on PPMI and IXI datasets
-# Author: Generated with Claude Code
 # Date: 2025-11-17
 
 set -e
