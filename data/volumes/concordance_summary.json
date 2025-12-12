@@ -1,0 +1,14 @@
+{
+  "n_subjects": 83,
+  "n_missing_demographics": 22,
+  "icc_3_1": 0.8331814080895487,
+  "pearson_r": 0.8574561672369219,
+  "spearman_rho": 0.8457211225624988,
+  "bias": -0.38868381098644894,
+  "rmse": 0.824500337433479,
+  "wilcoxon_p": 3.074952609810224e-05,
+  "agreement_pct": 90.36144578313254,
+  "cohens_kappa": 0.44666666666666666,
+  "overall_score": 0.9,
+  "concordance_level": "MODERATE"
+}
