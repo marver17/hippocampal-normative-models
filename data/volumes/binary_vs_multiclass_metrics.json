@@ -1,0 +1,56 @@
+{
+  "all": {
+    "n": 70,
+    "binary": {
+      "accuracy_ct": 0.5285714285714286,
+      "accuracy_gen": 0.8,
+      "improvement_pct": 27.142857142857146,
+      "errors_ct": 33,
+      "errors_gen": 14,
+      "error_reduction": 19
+    },
+    "multiclass": {
+      "accuracy_ct": 0.37142857142857144,
+      "accuracy_gen": 0.5285714285714286,
+      "improvement_pct": 15.714285714285714,
+      "balanced_accuracy_ct": 0.36764705882352944,
+      "balanced_accuracy_gen": 0.5253267973856208
+    }
+  },
+  "low": {
+    "n": 27,
+    "binary": {
+      "accuracy_ct": 0.5185185185185185,
+      "accuracy_gen": 0.8888888888888888,
+      "improvement_pct": 37.03703703703704,
+      "errors_ct": 13,
+      "errors_gen": 3,
+      "error_reduction": 10
+    },
+    "multiclass": {
+      "accuracy_ct": 0.2962962962962963,
+      "accuracy_gen": 0.48148148148148145,
+      "improvement_pct": 18.51851851851852,
+      "balanced_accuracy_ct": 0.2742424242424243,
+      "balanced_accuracy_gen": 0.4424242424242424
+    }
+  },
+  "high": {
+    "n": 43,
+    "binary": {
+      "accuracy_ct": 0.5348837209302325,
+      "accuracy_gen": 0.7441860465116279,
+      "improvement_pct": 20.93023255813954,
+      "errors_ct": 20,
+      "errors_gen": 11,
+      "error_reduction": 9
+    },
+    "multiclass": {
+      "accuracy_ct": 0.4186046511627907,
+      "accuracy_gen": 0.5581395348837209,
+      "improvement_pct": 13.95348837209302,
+      "balanced_accuracy_ct": 0.4345238095238095,
+      "balanced_accuracy_gen": 0.574404761904762
+    }
+  }
+}

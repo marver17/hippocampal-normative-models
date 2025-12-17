@@ -1,0 +1,22 @@
+{
+  "high_qc_sample_size": 43,
+  "n_atrophy": 5,
+  "n_normal": 38,
+  "correlations": {
+    "ct_vs_real": 0.6909937775513226,
+    "gen_vs_real": 0.8382437617136214
+  },
+  "bias": {
+    "ct": -1.155215096493988,
+    "gen": -0.4231669137794594
+  },
+  "mae": {
+    "ct": 1.155215096493988,
+    "gen": 0.6056551681043115
+  },
+  "cohens_d": {
+    "ct": 1.0182816649460966,
+    "gen": 1.1120118477012446
+  },
+  "interpretation": "ICC and ROC measure different aspects. Gen superior for absolute agreement, both similar for discrimination."
+}

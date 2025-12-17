@@ -1,0 +1,6 @@
+subject_id,has_vol_ct,has_vol_real,has_vol_gen,has_z_ct,has_z_real,has_z_gen,qc_score,hippocampus_vol,issue,recovery_difficulty
+sub-1197812,True,True,True,True,True,False,0.8043125000000001,0.7604,Missing_Synth-MR,MEDIUM
+sub-1333380,True,True,True,False,True,True,0.79945,0.7484,CT_GAMLSS_failure,DIFFICULT
+sub-1370530,True,True,True,False,True,True,0.8117375,0.7467,CT_GAMLSS_failure,DIFFICULT
+sub-1384218,True,True,True,True,True,False,0.8155874999999999,0.8081,Missing_Synth-MR,MEDIUM
+sub-183791,True,True,True,False,True,True,0.8048375000000001,0.7362,CT_GAMLSS_failure,DIFFICULT
