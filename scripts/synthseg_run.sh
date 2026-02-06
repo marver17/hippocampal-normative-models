@@ -27,34 +27,34 @@ if [ ! -f "$INPUT_IMAGE" ]; then
 fi
 
 # Crea la directory di output se non esiste
-mkdir -p ${OUTPUT_DIR}/${SUBJECT_ID}
+mkdir -p "${OUTPUT_DIR}"
 
 # Definisci i percorsi di output
-SEGMENTATION_OUTPUT="${OUTPUT_DIR}/${SUBJECT_ID}/segmentation.nii.gz"
-VOLUMES_OUTPUT="${OUTPUT_DIR}/${SUBJECT_ID}/volumes.csv"
-QC_OUTPUT="${OUTPUT_DIR}/${SUBJECT_ID}/qc_scores.csv"
-POSTERIORS_OUTPUT="${OUTPUT_DIR}/${SUBJECT_ID}/posteriors"
-RESAMPLED_OUTPUT="${OUTPUT_DIR}/${SUBJECT_ID}/resampled.nii.gz"
+SEGMENTATION_OUTPUT="${OUTPUT_DIR}/segmentation.nii.gz"
+VOLUMES_OUTPUT="${OUTPUT_DIR}/volumes.csv"
+QC_OUTPUT="${OUTPUT_DIR}/qc_scores.csv"
+POSTERIORS_OUTPUT="${OUTPUT_DIR}/posteriors"
+RESAMPLED_OUTPUT="${OUTPUT_DIR}/resampled.nii.gz"
 
 echo "Inizio elaborazione SynthSeg per il soggetto: ${SUBJECT_ID}"
 echo "Input: ${INPUT_IMAGE}"
-echo "Output dir: ${OUTPUT_DIR}/${SUBJECT_ID}"
+echo "Output dir: ${OUTPUT_DIR}"
 echo "Threads: ${NUM_THREADS}"
 
 # Crea directory per posteriors
-mkdir -p ${POSTERIORS_OUTPUT}
+mkdir -p "${POSTERIORS_OUTPUT}"
 
 # Esegui SynthSeg con parametri ottimizzati per ADNI
 mri_synthseg \
-    --i ${INPUT_IMAGE} \
-    --o ${SEGMENTATION_OUTPUT} \
+    --i "${INPUT_IMAGE}" \
+    --o "${SEGMENTATION_OUTPUT}" \
     --parc \
     --robust \
-    --vol ${VOLUMES_OUTPUT} \
-    --qc ${QC_OUTPUT} \
-    --post ${POSTERIORS_OUTPUT} \
-    --resample ${RESAMPLED_OUTPUT} \
-    --threads ${NUM_THREADS} \
+    --vol "${VOLUMES_OUTPUT}" \
+    --qc "${QC_OUTPUT}" \
+    --post "${POSTERIORS_OUTPUT}" \
+    --resample "${RESAMPLED_OUTPUT}" \
+    --threads "${NUM_THREADS}" \
     --cpu \
     --addctab
 

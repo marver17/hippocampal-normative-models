@@ -208,3 +208,5 @@ __marimo__/
 
 *.pdf
 
+data/FOMO-300K/participants.tsv 
+data/FOMO-300K/mri_info.tsv

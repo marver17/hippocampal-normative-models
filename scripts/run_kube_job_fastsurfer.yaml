@@ -1,0 +1,83 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: 'fastsurfer-job'
+  namespace: mario-verdicchio
+spec:
+  completions: 3738
+  parallelism: 2
+  completionMode: Indexed
+  backoffLimit: 50
+  backoffLimitPerIndex: 2
+  maxFailedIndexes: 50
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec:
+      restartPolicy: OnFailure
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: NotIn
+                values:
+                - kubelet-5
+      containers:
+        - name: fastsurfer
+          image: registry.sdn/fastsurfer:cpu-v2.4.2
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+          command:
+            - "bash"
+            - "-c"
+            - |
+                line=$(sed -n "$((JOB_COMPLETION_INDEX+2))p" "/mnt/NAS-Progetti/BrainAtrophy/code/csv/to_process_fastsurfer.csv")
+                IFS=',' read -r subject_id image_path output_path dataset_code session_id <<< "$line"
+
+                strip_quotes() {
+                  local v="$1"
+                  v="${v#\"}"
+                  v="${v%\"}"
+                  echo "$v"
+                }
+
+                subject_id=$(strip_quotes "$subject_id")
+                image_path=$(strip_quotes "$image_path")
+                output_path=$(strip_quotes "$output_path")
+                dataset_code=$(strip_quotes "$dataset_code")
+                session_id=$(strip_quotes "$session_id")
+
+                if [ -z "$output_path" ]; then
+                  BASE_ROOT="/mnt/NAS-Progetti/BrainAtrophy/Normative Model"
+                  if [ -n "$dataset_code" ]; then
+                    OUTPUT_ROOT="$BASE_ROOT/$dataset_code/derivatives/fastsurfer"
+                  else
+                    OUTPUT_ROOT="$BASE_ROOT/derivatives/fastsurfer"
+                  fi
+                  if [ -n "$session_id" ]; then
+                    output_path="$OUTPUT_ROOT/$subject_id/$session_id"
+                  else
+                    output_path="$OUTPUT_ROOT/$subject_id"
+                  fi
+                fi
+
+                export FS_LICENSE="/mnt/NAS-Progetti/BrainAtrophy/code/license.txt"
+                bash /mnt/NAS-Progetti/BrainAtrophy/code/fastsurfer_run.sh "$subject_id" "$image_path" "$output_path" 4
+          resources:
+            requests:
+              memory: "12Gi"
+              cpu: "3"
+            limits:
+              memory: "16Gi"
+              cpu: "5"
+          volumeMounts:
+            - name: my-volume
+              mountPath: "/mnt/NAS-Progetti"
+      volumes:
+        - name: my-volume
+          persistentVolumeClaim:
+            claimName: pvc-progetti-claim

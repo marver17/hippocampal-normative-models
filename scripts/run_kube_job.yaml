@@ -1,11 +1,11 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: 'indexed-job1'
+  name: 'synthseg-job'
   namespace: mario-verdicchio
 spec:
-  completions: 113
-  parallelism: 4
+  completions: 1299
+  parallelism: 2
   completionMode: Indexed
   backoffLimit: 50
   backoffLimitPerIndex: 2
@@ -32,11 +32,9 @@ spec:
             - "bash"
             - "-c"
             - |
-                line=$(sed -n "$((JOB_COMPLETION_INDEX+2))p" "/mnt/NAS-Progetti/BrainAtrophy/DATASET/synthseg_normative_on_real_rf.csv")
-                subject_id=$(echo $line | cut -d',' -f1)
-                image_path=$(echo $line | cut -d',' -f2)
-                output_path=$(echo $line | cut -d',' -f3)
-                bash /mnt/db_ext/ADNI_DB/synthseg_run.sh $subject_id $image_path $output_path 4
+                line=$(sed -n "$((JOB_COMPLETION_INDEX+2))p" "/mnt/NAS-Progetti/BrainAtrophy/code/csv/all_to_process_synthseg.csv")
+                IFS=',' read -r subject_id image_path output_path _ <<< "$line"
+                bash /mnt/NAS-Progetti/BrainAtrophy/code/synthseg_run.sh "$subject_id" "$image_path" "$output_path" 4
           resources:
             requests:
               memory: "14Gi"
@@ -46,14 +44,9 @@ spec:
               cpu: "6"
           volumeMounts:
             - name: my-volume
-              mountPath: "/mnt/db_ext"
-            - name: my-volume-2
               mountPath: "/mnt/NAS-Progetti"
       volumes:
         - name: my-volume
-          persistentVolumeClaim:
-            claimName: pvc-dbext
-        - name: my-volume-2
           persistentVolumeClaim:
             claimName: pvc-progetti-claim
 
