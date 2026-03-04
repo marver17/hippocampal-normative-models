@@ -210,3 +210,4 @@ __marimo__/
 
 data/FOMO-300K/participants.tsv 
 data/FOMO-300K/mri_info.tsv
+hpc_processing/fastsurfer_gpu-latest.sif

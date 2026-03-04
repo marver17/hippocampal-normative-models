@@ -5,17 +5,17 @@ metadata:
   namespace: mario-verdicchio
 spec:
   completions: 3738
-  parallelism: 2
+  parallelism: 8
   completionMode: Indexed
-  backoffLimit: 50
-  backoffLimitPerIndex: 2
-  maxFailedIndexes: 50
+  backoffLimit: 100
+  backoffLimitPerIndex: 1
+  maxFailedIndexes: 100
   template:
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
     spec:
-      restartPolicy: OnFailure
+      restartPolicy: Never
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -65,6 +65,43 @@ spec:
                   fi
                 fi
 
+                # Check if subject processing is already complete
+                echo "=== Checking if subject $subject_id is already processed ==="
+                echo "Output path: $output_path"
+                
+                # Check for FastSurfer completion markers (actual output file names)
+                APARC_FILE="$output_path/mri/aparc.DKTatlas+aseg.deep.mgz"
+                STATS_FILE="$output_path/stats/aseg+DKT.stats"
+                ORIG_FILE="$output_path/mri/orig.mgz"
+                
+                echo "Checking for files:"
+                echo "  1. $APARC_FILE"
+                [ -f "$APARC_FILE" ] && echo "     ✓ Found" || echo "     ✗ Not found"
+                echo "  2. $STATS_FILE"
+                [ -f "$STATS_FILE" ] && echo "     ✓ Found" || echo "     ✗ Not found"
+                echo "  3. $ORIG_FILE"
+                [ -f "$ORIG_FILE" ] && echo "     ✓ Found" || echo "     ✗ Not found"
+                
+                if [ -f "$APARC_FILE" ] && [ -f "$STATS_FILE" ] && [ -f "$ORIG_FILE" ]; then
+                  echo "=== Subject $subject_id ALREADY PROCESSED ==="
+                  echo "All required output files found. Skipping processing."
+                  exit 0
+                fi
+                
+                echo "=== Subject $subject_id NOT YET PROCESSED ==="
+                if [ -d "$output_path" ]; then
+                  echo "Output directory exists. Contents:"
+                  ls -la "$output_path" || echo "Cannot list directory"
+                  if [ -d "$output_path/mri" ]; then
+                    echo "MRI directory exists with $(ls -1 "$output_path/mri" 2>/dev/null | wc -l) files"
+                  fi
+                  if [ -d "$output_path/stats" ]; then
+                    echo "Stats directory exists with $(ls -1 "$output_path/stats" 2>/dev/null | wc -l) files"
+                  fi
+                else
+                  echo "Output directory does not exist yet."
+                fi
+                echo "Starting FastSurfer processing..."
                 export FS_LICENSE="/mnt/NAS-Progetti/BrainAtrophy/code/license.txt"
                 bash /mnt/NAS-Progetti/BrainAtrophy/code/fastsurfer_run.sh "$subject_id" "$image_path" "$output_path" 4
           resources:

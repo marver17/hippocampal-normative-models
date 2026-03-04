@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+async#!/usr/bin/env python3
 """
 Convert OASIS-1 from Analyze 7.5 format to BIDS using nibabel
 IMPORTANT: Using PROCESSED files (not RAW) - these have correct orientation and N4 bias correction

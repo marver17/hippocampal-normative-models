@@ -8,14 +8,14 @@ spec:
   parallelism: 2
   completionMode: Indexed
   backoffLimit: 50
-  backoffLimitPerIndex: 2
+  backoffLimitPerIndex: 1
   maxFailedIndexes: 50
   template:
     metadata:
       annotations:
         sidecar.istio.io/inject: "false"
     spec:
-      restartPolicy: OnFailure
+      restartPolicy: Never
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:

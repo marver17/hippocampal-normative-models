@@ -43,14 +43,9 @@ echo "Output base: ${OUTPUT_BASE}"
 echo "Threads: ${NUM_THREADS}"
 echo "License: ${FS_LICENSE_PATH}"
 
-# Se OUTPUT_BASE contiene già il subject_id, evita di creare un doppio livello
-SID="$SUBJECT_ID"
+# Usa sempre un SID temporaneo per evitare cartelle aggiuntive
+SID="temp_fastsurfer"
 SD="$OUTPUT_BASE"
-MOVE_UP=false
-if [[ "$OUTPUT_BASE" == *"/${SUBJECT_ID}/"* || "$OUTPUT_BASE" == *"/${SUBJECT_ID}" ]]; then
-    SID="fastsurfer"
-    MOVE_UP=true
-fi
 
 # Esegui FastSurfer (solo segmentazione)
 run_fastsurfer.sh \
@@ -61,15 +56,13 @@ run_fastsurfer.sh \
     --threads "$NUM_THREADS" \
     --seg_only
 
-# Se abbiamo usato SID temporaneo, sposta i risultati nella cartella desiderata
-if [ "$MOVE_UP" = true ]; then
-    TEMP_DIR="${SD}/${SID}"
-    if [ -d "$TEMP_DIR" ]; then
-        shopt -s dotglob
-        mv "$TEMP_DIR"/* "$SD"/
-        rmdir "$TEMP_DIR"
-        shopt -u dotglob
-    fi
+# Sposta sempre i risultati dalla cartella temporanea alla cartella desiderata
+TEMP_DIR="${SD}/${SID}"
+if [ -d "$TEMP_DIR" ]; then
+    shopt -s dotglob
+    mv "$TEMP_DIR"/* "$SD"/
+    rmdir "$TEMP_DIR"
+    shopt -u dotglob
 fi
 
 echo "Elaborazione completata per il soggetto: ${SUBJECT_ID}"
