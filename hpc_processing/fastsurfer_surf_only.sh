@@ -73,21 +73,64 @@ if [ -z "$output_path" ]; then
 fi
 
 # ============================================================
-# Skip se già processato
+# Flag di completamento
+#   SEG:  segmentazione CNN completata  (--seg_only)
+#   SURF: surface pipeline completata   (produce aseg.stats con eTIV)
 # ============================================================
+SEG_DONE=false
+SURF_DONE=false
+
 if [ -f "$output_path_local/mri/aparc.DKTatlas+aseg.deep.mgz" ] && \
    [ -f "$output_path_local/stats/aseg+DKT.stats" ] && \
    [ -f "$output_path_local/mri/orig.mgz" ]; then
-    echo "=== $subject_id ALREADY PROCESSED — skip ==="
+    SEG_DONE=true
+fi
+
+if [ -f "$output_path_local/stats/aseg.stats" ] && \
+   [ -f "$output_path_local/surf/lh.white" ] && \
+   [ -f "$output_path_local/surf/rh.white" ]; then
+    SURF_DONE=true
+fi
+
+# ============================================================
+# Skip se già completamente processato
+# ============================================================
+if $SEG_DONE && $SURF_DONE; then
+    echo "=== $subject_id ALREADY FULLY PROCESSED — skip ==="
     exit 0
 fi
 
 echo "=== Processing: $subject_id ==="
-echo "Input:  $image_path_local"
-echo "Output: $output_path_local"
-echo "GPU:    $CUDA_VISIBLE_DEVICES"
+echo "Input:        $image_path_local"
+echo "Output:       $output_path_local"
+echo "GPU:          $CUDA_VISIBLE_DEVICES"
+echo "SEG_DONE:     $SEG_DONE"
+echo "SURF_DONE:    $SURF_DONE"
 
-mkdir -p "$output_path_local" "$TMPSD"
+mkdir -p "$output_path_local" "$TMPSD/temp_fastsurfer"
+
+# ============================================================
+# Se la segmentazione esiste già, copiala nel TMPSD
+# così FastSurfer con --surf_only la trova dove si aspetta
+# ============================================================
+if $SEG_DONE; then
+    echo "=== Copio segmentazione esistente in TMPSD ==="
+    cp -r "$output_path_local/." "$TMPSD/temp_fastsurfer/"
+fi
+
+# ============================================================
+# Scegli la modalità di esecuzione
+#
+#   SEG_DONE=false  → pipeline completa (seg + surf)
+#   SEG_DONE=true   → solo surface pipeline (--surf_only)
+# ============================================================
+if $SEG_DONE; then
+    PIPELINE_FLAG="--surf_only"
+    echo "=== Modalità: SURF_ONLY ==="
+else
+    PIPELINE_FLAG=""
+    echo "=== Modalità: FULL PIPELINE (seg + surf) ==="
+fi
 
 # ============================================================
 # Lancia FastSurfer dentro Singularity con GPU
@@ -103,9 +146,10 @@ singularity exec \
         --sid temp_fastsurfer \
         --sd /sd \
         --threads "$SLURM_CPUS_PER_TASK" \
-        --seg_only \
         --no_hypothal \
-        --device cuda
+        --no_skull_strip \
+        --device cuda \
+        $PIPELINE_FLAG
 
 EXIT_CODE=$?
 

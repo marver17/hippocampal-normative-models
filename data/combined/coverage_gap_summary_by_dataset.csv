@@ -1,0 +1,10 @@
+dataset,selected,present_synthseg,missing_synthseg,present_fastsurfer,missing_fastsurfer,missing_in_both
+AABC,670,369,301,347,323,224
+ADNI,541,519,22,404,137,13
+FOMO,716,708,8,708,8,8
+IXI,316,262,54,298,18,18
+OASIS1,132,0,132,0,132,132
+OASIS2,85,85,0,85,0,0
+OASIS3,960,960,0,827,133,0
+PPMI,170,160,10,164,6,1
+SRPBS,251,251,0,251,0,0

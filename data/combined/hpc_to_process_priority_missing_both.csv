@@ -1,0 +1,2 @@
+subject_id,image_path,output_path,dataset_code,session_id
+sub-162905,/mnt/NAS-Progetti/BrainAtrophy/Normative Model/PPMI/nifti_baseline/sub-162905/ses-20220811/anat/sub-162905_ses-20220811_T1w.nii.gz,/mnt/NAS-Progetti/BrainAtrophy/Normative Model/PPMI/nifti_baseline/derivatives/fastsurfer/sub-162905/ses-20220811,,
