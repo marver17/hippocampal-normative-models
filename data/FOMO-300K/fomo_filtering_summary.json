@@ -1,0 +1,115 @@
+{
+  "dataset": "FOMO-300K",
+  "filter_criteria": {
+    "group": "Control",
+    "age_min": 45,
+    "field_strength_allowed": [
+      1.5,
+      3.0
+    ],
+    "session": "first_only",
+    "excluded_datasets": [
+      "PT002",
+      "PT021",
+      "PT029",
+      "PT019",
+      "PT_020"
+    ]
+  },
+  "total_subjects": 859,
+  "age": {
+    "mean": 62.912223515715944,
+    "std": 10.490075032512625,
+    "min": 45,
+    "max": 89,
+    "median": 62.44
+  },
+  "sex": {
+    "female": 514,
+    "male": 345,
+    "female_pct": 59.837019790454015
+  },
+  "datasets": {
+    "n_datasets": 7,
+    "datasets": [
+      {
+        "dataset_code": "PT001",
+        "n_subjects": 15,
+        "age_mean": 53.4,
+        "age_std": 4.468940430507948,
+        "age_min": 45.0,
+        "age_max": 60.0,
+        "n_female": 10,
+        "n_male": 5,
+        "pct_female": 66.66666666666666
+      },
+      {
+        "dataset_code": "PT014",
+        "n_subjects": 190,
+        "age_mean": 62.26136842105263,
+        "age_std": 9.032492447305877,
+        "age_min": 45.49,
+        "age_max": 88.0,
+        "n_female": 112,
+        "n_male": 78,
+        "pct_female": 58.94736842105262
+      },
+      {
+        "dataset_code": "PT030",
+        "n_subjects": 526,
+        "age_mean": 64.0367680608365,
+        "age_std": 11.095712196777672,
+        "age_min": 45.0,
+        "age_max": 89.0,
+        "n_female": 314,
+        "n_male": 212,
+        "pct_female": 59.6958174904943
+      },
+      {
+        "dataset_code": "PT032",
+        "n_subjects": 20,
+        "age_mean": 64.75,
+        "age_std": 5.580746978864502,
+        "age_min": 57.0,
+        "age_max": 75.0,
+        "n_female": 8,
+        "n_male": 12,
+        "pct_female": 40.0
+      },
+      {
+        "dataset_code": "PT033",
+        "n_subjects": 19,
+        "age_mean": 53.03157894736842,
+        "age_std": 6.605053001013604,
+        "age_min": 45.6,
+        "age_max": 63.7,
+        "n_female": 15,
+        "n_male": 4,
+        "pct_female": 78.94736842105263
+      },
+      {
+        "dataset_code": "PT034",
+        "n_subjects": 81,
+        "age_mean": 61.901234567901234,
+        "age_std": 9.636655200679856,
+        "age_min": 45.0,
+        "age_max": 83.0,
+        "n_female": 50,
+        "n_male": 31,
+        "pct_female": 61.72839506172839
+      },
+      {
+        "dataset_code": "PT036",
+        "n_subjects": 8,
+        "age_mean": 51.375,
+        "age_std": 3.814914340921881,
+        "age_min": 46.0,
+        "age_max": 58.0,
+        "n_female": 5,
+        "n_male": 3,
+        "pct_female": 62.5
+      }
+    ]
+  },
+  "export_date": "2026-04-02 15:58:20"
+}

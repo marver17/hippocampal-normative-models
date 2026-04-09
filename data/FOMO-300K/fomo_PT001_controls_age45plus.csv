@@ -1,0 +1,16 @@
+subject_id,session_id,age,sex,site,dataset_code,dataset,field_strength_T
+sub-03,ses-01,57.0,F,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-04,ses-01,45.0,F,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-06,ses-01,52.0,F,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-07,ses-01,51.0,M,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-08,ses-01,56.0,F,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-09,ses-01,56.0,M,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-10,ses-01,55.0,M,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-14,ses-01,48.0,M,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-16,ses-01,60.0,F,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-18,ses-01,57.0,F,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-22,ses-01,53.0,F,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-23,ses-01,54.0,F,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-24,ses-01,57.0,F,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-27,ses-01,45.0,F,PT001_ClevelandCCF,PT001,FOMO-300K,3.0
+sub-28,ses-01,55.0,M,PT001_ClevelandCCF,PT001,FOMO-300K,3.0

@@ -1,0 +1,25 @@
+{
+  "dataset": "ADNI",
+  "filter_criteria": {
+    "group": "CN",
+    "age_min": 45,
+    "field_strength_allowed": [
+      1.5,
+      3.0
+    ],
+    "session": "first_mri_per_subject"
+  },
+  "total_subjects": 991,
+  "age": {
+    "mean": 71.96730575176588,
+    "std": 6.852525944832551,
+    "min": 50.4,
+    "max": 90.3,
+    "median": 71.5
+  },
+  "sex": {
+    "Female": 550,
+    "Male": 441
+  },
+  "export_date": "2026-04-02 16:35:59"
+}

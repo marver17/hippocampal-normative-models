@@ -1,0 +1,9 @@
+subject_id,session_id,age,sex,site,dataset_code,dataset,field_strength_T
+sub-013,ses-01,49.0,F,PT036_Yale_HighRes,PT036,FOMO-300K,
+sub-015,ses-01,53.0,F,PT036_Yale_HighRes,PT036,FOMO-300K,
+sub-018,ses-01,51.0,M,PT036_Yale_HighRes,PT036,FOMO-300K,
+sub-031,ses-01,46.0,M,PT036_Yale_HighRes,PT036,FOMO-300K,
+sub-035,ses-01,50.0,M,PT036_Yale_HighRes,PT036,FOMO-300K,
+sub-064,ses-01,58.0,F,PT036_Yale_HighRes,PT036,FOMO-300K,
+sub-109,ses-01,55.0,F,PT036_Yale_HighRes,PT036,FOMO-300K,
+sub-126,ses-01,49.0,F,PT036_Yale_HighRes,PT036,FOMO-300K,
