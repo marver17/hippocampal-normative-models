@@ -1,0 +1,65 @@
+# config.yaml
+
+FOMO:
+  metadata_path: "data/FOMO/fomo_metadata.csv"
+  image_dir: "/mnt/db_ext/RAW/FOMO"
+  id_col: "subject_id"
+  age_col: "age"
+  age_threshold: 45
+  visit_col: "session"
+  target_visit: "baseline"
+
+AABC:
+  metadata_path: "data/AABC/participants.tsv"
+  image_dir: "/mnt/db_ext/RAW/AABC"
+  id_col: "participant_id"
+  age_col: "age"
+  age_threshold: 45
+  cognition:
+    col: "MoCA"
+    min_score: 26
+
+ADNI:
+  clinica_file: "data/ADNI/clinicaADNI.xlsx"
+  merge_file: "data/ADNI/ADNIMERGE_30Jul2024.csv"
+  image_dir: "/mnt/db_ext/RAW/ADNI"
+  id_col: "RID"
+  age_col: "AGE"
+  age_threshold: 45
+  healthy_condition:
+    col: "DX"
+    val: "CN"
+
+IXI:
+  metadata_path: "data/IXI/IXI.xls"
+  image_dir: "/mnt/NAS-Progetti/IXI"
+  id_col: "IXI_ID"
+  age_col: "AGE"
+  age_threshold: 45
+
+OASIS:
+  metadata_paths: 
+    - "data/OASIS/oasis1.csv"
+    - "data/OASIS/oasis2.csv"
+    - "data/OASIS/oasis3.csv"
+  image_dir: "/mnt/db_ext/RAW/OASIS"
+  id_col: "Subject"
+  age_col: "Age"
+  age_threshold: 50
+  healthy_condition:
+    col: "CDR"
+    val: 0
+
+PPMI:
+  metadata_path: "data/PPMI/ppmi_data.csv"
+  nifti_baseline_path: "/mnt/db_ext/RAW/PPMI/nifti_baseline"
+  id_col: "subject_id"
+  age_col: "age"
+  age_threshold: 45
+
+SRPBS:
+  metadata_path: "data/SRPBS/participants.tsv"
+  image_dir: "/mnt/db_ext/RAW/SRPBS"
+  id_col: "participant_id"
+  age_col: "age"
+  age_threshold: 45
